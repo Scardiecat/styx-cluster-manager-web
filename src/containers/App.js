@@ -10,12 +10,14 @@ import React, {
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Main from '../components/Main';
+import Member from '../components/cluster/MemberComponent';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions} = this.props;
-    return <Main actions={actions}/>;
+    //const {actions} = this.props;
+    //return <Member actions={actions}/>;
+    let actions = {message: 'test45'};
+    return <Member actions= {actions}/>;
   }
 }
 /* Populated by react-webpack-redux:reducer
