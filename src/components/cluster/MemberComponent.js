@@ -7,7 +7,7 @@ require('styles/cluster/Member.less');
 class MemberComponent extends React.Component {
   render() {
     return (
-        <tr>
+        <tr className="member-component">
           <td>{this.props.member.id} </td>
           <td>{this.props.member.uniqueAddress.address.host} </td>
           <td>{this.props.member.uniqueAddress.address.port} </td>
@@ -23,6 +23,18 @@ MemberComponent.displayName = 'ClusterMemberComponent';
  MemberComponent.propTypes = {
    member: React.PropTypes.object
  };
- //MemberComponent.defaultProps = {};
+ 
+ MemberComponent.defaultProps = {
+  member:{
+    id: 0,
+    uniqueAddress:{
+      address: {
+        host: '',
+        port: 0
+      },
+    },
+    memberStatus:''
+  }
+ };
 
 export default MemberComponent;

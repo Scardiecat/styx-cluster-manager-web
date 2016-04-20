@@ -27,6 +27,8 @@ MemberListComponent.displayName = 'ClusterMemberListComponent';
 MemberListComponent.propTypes = {
   memberList: React.PropTypes.arrayOf(React.PropTypes.object)
 };
-// MemberListComponent.defaultProps = {};
+MemberListComponent.defaultProps = {
+  memberList:[]
+};
 
 export default MemberListComponent;
