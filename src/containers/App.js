@@ -16,8 +16,8 @@ class App extends Component {
   render() {
     //const {actions} = this.props;
     //return <Member actions={actions}/>;
-    let actions = {message: 'test45'};
-    return <Member actions= {actions}/>;
+    let member = JSON.parse('{"id":716437323,"uniqueAddress":{"address":{"protocol":"akka.tcp","system":"ForHonorActorSystem","host":"10.128.26.59","port":2551},"uid":716437323},"memberStatus":"Up","roles":["seed"]}');
+    return <Member member= {member}/>;
   }
 }
 /* Populated by react-webpack-redux:reducer
