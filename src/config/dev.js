@@ -7,7 +7,7 @@ let config = {
   clusterManager: {
     protocol:'ws',
     host:'localhost',
-    port: 8080,
+    port: 12551,
     path: '/feed'
   }
 };

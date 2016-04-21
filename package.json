@@ -17,7 +17,9 @@
     "serve:dist": "node server.js --env=dist",
     "start": "node server.js --env=dev",
     "test": "karma start",
-    "test:watch": "karma start --autoWatch=true --singleRun=false"
+    "test:watch": "karma start --autoWatch=true --singleRun=false",
+    "testS": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(_spec.js|_spec.jsx)\"",
+    "testS:watch": "npm run testS -- --watch"
   },
   "repository": "",
   "keywords": [],
@@ -31,6 +33,7 @@
     "babel-preset-react": "^6.0.15",
     "bower-webpack-plugin": "^0.1.9",
     "chai": "^3.2.0",
+    "chai-immutable": "^1.5.4",
     "copyfiles": "^0.2.1",
     "css-loader": "^0.23.0",
     "eslint": "^2.2.0",
@@ -41,12 +44,15 @@
     "isparta-instrumenter-loader": "^1.0.0",
     "karma": "^0.13.9",
     "karma-chai": "^0.1.0",
+    "karma-chai-immutable": "^1.0.2",
     "karma-coverage": "^0.5.3",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^2.0.0",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.7.0",
+    "less": "^2.5.3",
+    "less-loader": "^2.0.0",
     "minimist": "^1.2.0",
     "mocha": "^2.2.5",
     "null-loader": "^0.1.1",
@@ -58,17 +64,19 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.13.0",
-    "webpack-dev-server": "^1.13.0",
-    "less-loader": "^2.0.0",
-    "less": "^2.5.3"
+    "webpack-dev-server": "^1.13.0"
   },
   "dependencies": {
     "core-js": "^2.0.0",
     "fs": "0.0.2",
+    "immutable": "^3.8.1",
     "normalize.css": "^4.0.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0"
+  },
+  "babel": {
+    "presets": ["es2015"]
   }
 }
