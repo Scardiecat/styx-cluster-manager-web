@@ -31,7 +31,7 @@ MemberComponent.displayName = 'ClusterMemberComponent';
       address: {
         host: '',
         port: 0
-      },
+      }
     },
     memberStatus:''
   }

@@ -17,8 +17,8 @@ let wsConnectString = config.default.clusterManager.protocol
 
 var ws = new WebSocket(wsConnectString);
 ws.onmessage = function(event) {
-  console.log('data');
   console.log(event);
+  store.dispatch(JSON.parse(event.data));
 }
 
 
