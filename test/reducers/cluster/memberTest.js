@@ -7,8 +7,8 @@ describe('member', () => {
   it('should not change the passed state', (done) => {
 
     const state = Map();
-    reducer(state, {type: 'INVALID'});
-
+    const nextState = reducer(state, {type: 'INVALID'});
+    expect(nextState).to.equal(Map())
     done();
   });
 
@@ -51,4 +51,16 @@ describe('member', () => {
     }))
     done();
   });
+
+  it('has a valid initial state', (done) => {
+    const nextState = reducer(undefined, {type: 'INVALID'});
+    expect(nextState).to.equal(Map({
+      members: Map({
+        ids: List.of(),
+        entries: Map()
+      })
+    }))
+
+    done()
+  })
 });

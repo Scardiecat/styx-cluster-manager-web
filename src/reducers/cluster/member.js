@@ -3,10 +3,15 @@
  * If you change the type from object to something else, do not forget to update
  * src/container/App.js accordingly.
  */
-import {Map} from 'immutable'
+import {Map,List} from 'immutable'
 import {changeMemberStatus} from '../../logic/changememberstatus'
 import {removeMember} from '../../logic/removemember'
-const initialState = Map();
+const initialState =Map({
+        members: Map({
+          ids: List.of(),
+          entries: Map()
+        })
+      });
 
 module.exports = function(state = initialState, action) {
   /* Keep the reducer clean - do not mutate the original state. */
