@@ -8,16 +8,15 @@ import React, {
   Component,
   PropTypes
 } from 'react';
+import ImmutablePropTypes from'react-immutable-proptypes';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import MemberList from '../components/cluster/MemberListComponent';
+import Main from '../components/Main';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    //const {actions} = this.props;
-    //return <Member actions={actions}/>;
-    let memberList = JSON.parse('[{"id":-1036451064,"uniqueAddress":{"address":{"protocol":"akka.tcp","system":"ForHonorActorSystem","host":"10.128.26.59","port":2550},"uid":-1036451064},"memberStatus":"Up","roles":["cluster-manager"]},{"id":716437323,"uniqueAddress":{"address":{"protocol":"akka.tcp","system":"ForHonorActorSystem","host":"10.128.26.59","port":2551},"uid":716437323},"memberStatus":"Up","roles":["seed"]}]');
-    return <MemberList memberList= {memberList}/>;
+    const {actions, member} = this.props;
+    return <Main actions={actions} member={member}/>;
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -26,11 +25,14 @@ class App extends Component {
  *       adjust it here.
  */
 App.propTypes = {
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  member: ImmutablePropTypes.map.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
-  const props = {};
+  const props = {
+    member: state.member
+  };
   return props;
 }
 function mapDispatchToProps(dispatch) {
