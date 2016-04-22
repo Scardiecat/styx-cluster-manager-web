@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import {Map} from 'immutable'
 
 require('styles/cluster/Member.less');
 
@@ -21,20 +23,21 @@ MemberComponent.displayName = 'ClusterMemberComponent';
 
 // Uncomment properties you need
  MemberComponent.propTypes = {
-   member: React.PropTypes.object
+   member: ImmutablePropTypes.map.isRequired
  };
  
  MemberComponent.defaultProps = {
-  member:{
-    id: 0,
-    uniqueAddress:{
-      address: {
-        host: '',
-        port: 0
-      }
-    },
+  member: Map({
+      id:0,
+      uniqueAddress:Map({
+        address:Map({
+        host:'',
+        port:0
+      })
+    }),
     memberStatus:''
-  }
+  })
+  
  };
 
 export default MemberComponent;

@@ -21,12 +21,6 @@ ws.onmessage = function(event) {
   store.dispatch(JSON.parse(event.data));
 }
 
-
-
-//const socket = io({path:'/feed',transports: ['websocket']})
-// socket.on('news', news =>
-//   console.log(JSON.stringify(news))
-// );
 render(
   <Provider store={store}>
     <App />
