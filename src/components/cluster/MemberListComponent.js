@@ -14,7 +14,7 @@ class MemberListComponent extends React.Component {
           <tbody>
             {
               this.props.members.get('ids').map((id) => {
-              {return <Member member = {this.props.members.get('entries').get(id)}/>  }
+              {return <Member key = {id} member = {this.props.members.get('entries').get(id)}/>  }
               })
             }
             
