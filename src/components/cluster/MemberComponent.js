@@ -13,6 +13,7 @@ class MemberComponent extends React.Component {
           <td>{this.props.member.get('id')} </td>
           <td>{this.props.member.get('uniqueAddress').get('address').get('host')}</td>
           <td>{this.props.member.get('uniqueAddress').get('address').get('port')} </td>
+          <td>[{this.props.member.get('roles').map ((role) => role)}]</td>
           <td>{this.props.member.get('memberStatus')} </td>
         </tr>
     );

@@ -9,9 +9,9 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
-        <MemberList members= {this.props.member.get('members')}/>;
+        <MemberList members= {this.props.member.get('members')}/>
       </div>
-    );
+    )
   }
 }
 
