@@ -10,10 +10,12 @@ const store = configureStore();
 let config = require('config');
 
 console.log(JSON.stringify(config.default));
-let wsConnectString = config.default.clusterManager.protocol
+let wsConnectString = (config.default.clusterManager != undefined) 
+? config.default.clusterManager.protocol
  + '://'+config.default.clusterManager.host
  + ':'+config.default.clusterManager.port
- + config.default.clusterManager.path;
+ + config.default.clusterManager.path : `ws://${location.hostname}:${location.port}/feed`
+
 
 var reconnect = inject(function (wsConnectString) {
   // arguments are what you passed to .connect
@@ -24,8 +26,8 @@ var reconnect = inject(function (wsConnectString) {
 
 var re = reconnect({
   // all options are optional
-  initialDelay: 1e3,
-  maxDelay: 30e3,
+  initialDelay: 100,
+  maxDelay: 60000,
   type: 'fibonacci',      // available: fibonacci, exponential
   failAfter: Infinity,
   randomisationFactor: 0,
@@ -34,6 +36,11 @@ var re = reconnect({
   console.log(event);
   store.dispatch(JSON.parse(event.data));
 }, wsConnectString)
+
+re.on('open', (event) => {
+  console.log('reset state');
+  store.dispatch({type: 'RESET'});
+});
 
 // var ws = new WebSocket(wsConnectString);
 // ws.onmessage = function(event) {
