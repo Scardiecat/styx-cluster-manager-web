@@ -67,6 +67,7 @@
     "webpack-dev-server": "^1.13.0"
   },
   "dependencies": {
+    "backoff": "^2.5.0",
     "core-js": "^2.0.0",
     "fs": "0.0.2",
     "immutable": "^3.8.1",
