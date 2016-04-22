@@ -7,11 +7,11 @@ require('styles/cluster/Member.less');
 class MemberComponent extends React.Component {
   render() {
     return (
-        <tr className="member-component">
-          <td>{this.props.member.id} </td>
-          <td>{this.props.member.uniqueAddress.address.host} </td>
-          <td>{this.props.member.uniqueAddress.address.port} </td>
-          <td>{this.props.member.memberStatus} </td>
+          <tr className="member-component">
+          <td>{this.props.member.get('id')} </td>
+          <td>{this.props.member.get('uniqueAddress').get('address').get('host')}</td>
+          <td>{this.props.member.get('uniqueAddress').get('address').get('port')} </td>
+          <td>{this.props.member.get('memberStatus')} </td>
         </tr>
     );
   }

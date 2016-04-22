@@ -8,15 +8,16 @@ require('styles/cluster/MemberList.less');
 class MemberListComponent extends React.Component {
   render() {
     return (
-      <div className="memberlist-component">
         <table className="member-component-summary">
           <tbody>
-            {this.props.memberList.map(function(member){
-              return <Member member = {member}/>
-            })}
+            { 
+              this.props.members.get('ids').map((id) => {
+              {return <Member member = {this.props.members.get('entries').get(id)}/>  } 
+              })
+            }
+            
           </tbody>
         </table>
-      </div>
     );
   }
 }
@@ -25,10 +26,10 @@ MemberListComponent.displayName = 'ClusterMemberListComponent';
 
 // Uncomment properties you need
 MemberListComponent.propTypes = {
-  memberList: React.PropTypes.arrayOf(React.PropTypes.object)
+  members: React.PropTypes.arrayOf(React.PropTypes.object)
 };
 MemberListComponent.defaultProps = {
-  memberList:[]
+  members:[]
 };
 
 export default MemberListComponent;
