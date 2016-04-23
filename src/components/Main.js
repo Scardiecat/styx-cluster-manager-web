@@ -2,21 +2,23 @@ require('normalize.css/normalize.css');
 require('styles/App.css');
 
 import React from 'react';
-
-let yeomanImage = require('../images/yeoman.png');
+import MemberList from '../components/cluster/MemberListComponent';
+import {Map} from 'immutable';
 
 class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
+        <MemberList members= {this.props.member.get('members')}/>
       </div>
-    );
+    )
   }
 }
 
 AppComponent.defaultProps = {
+  member: Map({
+    members: Map({})
+  })
 };
 
 export default AppComponent;
